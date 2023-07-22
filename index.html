@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Discourse Filter and Search</title>
+        <!-- JQuery -->
+        <!--<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>-->
+        <!--Google Font-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="search-container">
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search discourse text here..."
+                />
+                <button id="search">Search</button>
+            </div>
+            <div id="buttons">
+                <button class="button-value" onclick="filterCategory('all')">All</button>
+                <button class="button-value" onclick="filterCategory('Guru')">Guru</button>
+                <button class="button-value" onclick="filterCategory('Self_Realisation')">Self Realisation</button>
+            </div>
+            <div id="discourses"></div>
+            <!-- <div id="modal_placeholder"></div> -->
+            <div id="discourseModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close" onclick="hideModal()">&times;</span>
+                </div>
+              
+            </div>
+        </div>
+        <!-- Script -->
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
