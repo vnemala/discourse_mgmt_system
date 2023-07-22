@@ -1,7 +1,7 @@
 // 
 var obj = "hello";
 
-fetch('../DISCOURSES.json')
+fetch('DISCOURSES.json')
   .then(res => res.json())
   .then(data => {
     obj = data;
