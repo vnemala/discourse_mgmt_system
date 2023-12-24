@@ -20,7 +20,7 @@
                 />
                 <button id="search">Search</button>
             </div>
-            <div id="buttons">
+            <!-- <div id="buttons">
                 <button class="button-value" onclick="filterCategory('all')">All</button>
                 <button class="button-value" onclick="filterCategory('Service')">Service</button>
                 <button class="button-value" onclick="filterCategory('Education')">Education</button>
@@ -28,7 +28,20 @@
                 <button class="button-value" onclick="filterCategory('Spirituality_and_Worldly_Life')">Spirituality and Worldly Life</button>
                 <button class="button-value" onclick="filterCategory('Mission')">Mission</button>
                 <button class="button-value" onclick="filterCategory('Desires')">Desires</button>
+            </div> -->
+            <div id="dropdown">
+                <label for="category-select">Select Category:</label>
+                <select id="category-select" onchange="filterCategory(this.value)">
+                    <option value="all">All</option>
+                    <option value="Service">Service</option>
+                    <option value="Education">Education</option>
+                    <option value="Special_Occasion">Special Occasion</option>
+                    <option value="Spirituality_and_Worldly_Life">Spirituality and Worldly Life</option>
+                    <option value="Mission">Mission</option>
+                    <option value="Desires">Desires</option>
+                </select>
             </div>
+            
             <div id="discourses"></div>
             <!-- <div id="modal_placeholder"></div> -->
             <div id="discourseModal" class="modal">
