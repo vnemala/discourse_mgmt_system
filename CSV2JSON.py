@@ -20,6 +20,7 @@ def make_json(csvFilePath, jsonFilePath):
             # Assuming a column named 'No' to
             # be the primary key
             key = rows['DISCOURSE_NAME']
+            rows['SPECIAL_OCCASION'] = rows['SPECIAL_OCCASION'].replace(" ", "_")
             lst.append(rows)
     data = {
     "data": lst

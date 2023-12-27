@@ -67,10 +67,9 @@ body {
 }
 
 
-#filter-container {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    gap: 2em;
+.filter-td {
+    padding:1em;
+    border-right: 0.1em solid #c4c4c4;
 }
 #filter-button {
     padding: 0.3em 0.3em;
@@ -198,8 +197,6 @@ body {
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     gap: 0.2em; /* Adjust the gap between checkboxes as needed */
     font-size: 0.9em;
-    padding-right: 1em;
-    border-right: 2px solid #c4c4c4;
 }
 .checkbox-value {
     /* Add any additional styles for checkboxes */

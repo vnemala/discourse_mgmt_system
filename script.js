@@ -12,7 +12,13 @@ fetch('DISCOURSES.json')
         let card = document.createElement("div");
         //Card should have category and should stay hidden initially
         card.classList.add("card");
-        card.classList.add(i.CATEGORY);
+        if (i.CATEGORY != "") {
+            card.classList.add(i.CATEGORY);
+        }
+        if (i.SPECIAL_OCCASION != "") {
+            card.classList.add(i.SPECIAL_OCCASION);
+        }
+        console.log(i.SPECIAL_OCCASION);
         //container
         let container = document.createElement("div");
         container.classList.add("container");
@@ -26,6 +32,12 @@ fetch('DISCOURSES.json')
         date.innerText = i.DATE;
         date.classList.add("date");
         container.appendChild(date);
+        //special_occasion
+        let special_occasion = document.createElement("h6");
+        special_occasion.innerText = i.SPECIAL_OCCASION;
+        special_occasion.classList.add("special_occasion");
+        container.appendChild(special_occasion);
+    
     
         let text = document.createElement("p");
         text.innerText = i.TEXT;
@@ -74,38 +86,28 @@ function hideModal() {
 }
 
 
-//parameter passed from botton (Parameter same as category)
-// function filterCategory(value) {
-//     //Button class code
-//     let buttons = document.querySelectorAll(".button-value");
-//     buttons.forEach((button) => {
-//         //check if value equals innerText
-//         if (value.toUpperCase() == button.innerText.toUpperCase()) {
-//             button.classList.add("active");
-//         } else {
-//             button.classList.remove("active");
-//         }
-//     });
-
-//     //select all cards
-//     let elements = document.querySelectorAll(".card");
-//     //loop through all cards
-//     elements.forEach((element) => {
-//         // display all cards on 'all' button click
-//         if (value == "all") {
-//             element.classList.remove("hide");
-//         } else {
-//             //Check if element contains category class
-//             if (element.classList.contains(value)) {
-//                 //display element based on category
-//                 element.classList.remove("hide");   
-//             } else {
-//                 //hide other elements
-//                 element.classList.add("hide");
-//             }
-//         }
-//     });
-// }
+//parameter passed from botton (Parameter same as special Occassion)
+function filterSpecOcc(value) {
+    value=value.replace(/ /g,"_");
+    //select all cards
+    let elements = document.querySelectorAll(".card");
+    //loop through all cards
+    elements.forEach((element) => {
+        // display all cards on 'all' button click
+        if (value == "all") {
+            element.classList.remove("hide");
+        } else {
+            //Check if element contains category class
+            if (element.classList.contains(value)) {
+                //display element based on category
+                element.classList.remove("hide");   
+            } else {
+                //hide other elements
+                element.classList.add("hide");
+            }
+        }
+    });
+}
 function filterCategory() {
     // Get all selected checkboxes
     var checkboxes = document.querySelectorAll('.checkbox-value:checked');

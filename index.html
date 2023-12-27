@@ -21,7 +21,9 @@
                     />
                     <button id="search">Search</button>
                 </div>
-                <div id="filter-container">
+                <table id="filter-table">
+                    <tr id="filter-tr">
+                    <td class="filter-td">
                     <div id="checkboxes">
                         <label><input type="checkbox" class="checkbox-value" value="Service" onchange="filterCategory()">Service</label>
                         <label><input type="checkbox" class="checkbox-value" value="Education" onchange="filterCategory()">Education</label>
@@ -30,6 +32,8 @@
                         <label><input type="checkbox" class="checkbox-value" value="Mission" onchange="filterCategory()">Mission</label>
                         <label><input type="checkbox" class="checkbox-value" value="Desires" onchange="filterCategory()">Desires</label>
                     </div>   
+                    </td>
+                    <td class="filter-td">
                     <div id="date-container">
                         <label for="start-date">Start Date:</label>
                         <input type="date" id="start-date" class="datepicker">
@@ -38,6 +42,19 @@
                         <input type="date" id="end-date" class="datepicker">
                         <button id="filter-button">Filter</button>
                     </div>  
+                    </td>
+                    <td class="filter-td">
+                    <div id="special_occasion-container">
+                        <label for="specocc-select">Select Special Occasion:</label>
+                        <select id="specocc-select" onchange="filterSpecOcc(this.value)">
+                            <option value="all"> </option>
+                            <option value="New Year's Day">New Year's Day</option>
+                            <option value="Navaratri">Navaratri</option>
+                        </select>
+                    </div>
+                    </td>
+                </tr>
+                </table>
                 </div>
             </div>       
             
