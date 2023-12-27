@@ -13,85 +13,128 @@ body {
 
 .view_btn {
     cursor: pointer;
-    border: 2px solid #FF69B4;
-    padding: 1em 2.2em;
+    border: 2px solid #fdc955;
+    padding: 0.3em 0.5em;
     border-radius: 3em;
     background-color: transparent;
-    color: #FF69B4;
+    color: #707070;
     cursor: pointer;
 }
 
 .view_btn:active{
-    background-color: #FF69B4;
-    color: #ffffff;
+    background-color: #fdc955;
+    color: #707070;
 }
 .view_btn:hover{
-    background-color: #FF69B4;
-    color: #ffffff;
+    background-color: #fdc955;
+    color: #707070;
 }
 .wrapper {
     width: 95%;
     margin: 0 auto;
 }
-
+#search-and-filter-container {
+    border: 2px  solid #c4c4c4;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+    width: 100%;
+}
 #search-container {
-    margin: 1em 0;
+    margin-bottom: 1.5em;
 }
 
 #search-container input {
     background-color: transparent;
     width: 40%;
     border-bottom: 2px solid #110f29;
-    padding: 1em 0.3em;
+    padding: 0.5em 0.3em;
 }
 
 #search-container input:focus {
-    border-bottom-color: #FF69B4;
+    border-bottom-color: #fdc955;
 }
 
 #search-container button{
-    padding: 1em 2em;
+    padding: 0.5em 2em;
     margin-left: 1em;
-    background-color: #FF69B4;
-    color: #ffffff;
+    background-color: #fdc955;
+    color: #707070;
     border-radius: 5px;
     margin-top: 0.5em;
+    cursor: pointer;
+}
+
+
+#filter-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 2em;
+}
+#filter-button {
+    padding: 0.3em 0.3em;
+    margin-left: 1em;
+    background-color: transparent;
+    color: #707070;
+    border: 2px solid #c4c4c4;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    cursor: pointer;
+}
+#filter-button:hover{
+    background-color: #c4c4c4;
+    color: black;
+}
+
+#date-container{
+    font-size: 0.9em;
+
+}
+.datepicker {
+    background-color: transparent; 
+    border: 1px solid #707070;
+    border-radius: 0.2em;
+    padding: 0.2em;
 }
 
 .button-value {
-    border: 2px solid #FF69B4;
+    border: 2px solid #fdc955;
     padding: 1em 2.2em;
     border-radius: 3em;
     background-color: transparent;
-    color: #FF69B4;
+    color: #fdc955;
     cursor: pointer;
 }
 
 .active {
-    background-color: #FF69B4;
+    background-color: #fdc955;
     color: #ffffff;
 }
 
 
 #discourses {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 1.5em;
+    grid-template-columns: 1fr;
     padding: 2em 0;
 }
 
 .card {
     background-color: #ffffff;
-    max-width: 18em;
     margin-top: 1em;
-    padding:1em;
+    padding: 1em;
+    padding-top: 0em;
     border-radius: 5px;
-    box-shadow: 1em 2em 2.5em rgba(1,2,68,0.08);
+    box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .container {
     padding-top: 1em;
     color: #110f29;
+    box-sizing: border-box;
+    width: 100%;
 }
 .container h5{
     font-weight: 500;
@@ -103,12 +146,11 @@ body {
 
 @media screeen and (max-width: 720px) {
     .card {
-        max-width: 10em;
-        margin-top: 1em;
+        max-width: 100%;
     }
     
     #discourses {
-        grid-template-columns: auto auto;
+        grid-template-columns: auto;
         grid-column-gap: 1em;
     }
 }
@@ -131,9 +173,9 @@ body {
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 2em;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 90%; /* Could be more or less, depending on screen size */
   }
   
   /* The Close Button */
@@ -150,3 +192,17 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+
+#checkboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 0.2em; /* Adjust the gap between checkboxes as needed */
+    font-size: 0.9em;
+    padding-right: 1em;
+    border-right: 2px solid #c4c4c4;
+}
+.checkbox-value {
+    /* Add any additional styles for checkboxes */
+    margin-right: 0.2em;
+}
+

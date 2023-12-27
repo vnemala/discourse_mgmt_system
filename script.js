@@ -24,6 +24,7 @@ fetch('DISCOURSES.json')
         //date
         let date = document.createElement("h6");
         date.innerText = i.DATE;
+        date.classList.add("date");
         container.appendChild(date);
     
         let text = document.createElement("p");
@@ -74,37 +75,106 @@ function hideModal() {
 
 
 //parameter passed from botton (Parameter same as category)
-function filterCategory(value) {
-    //Button class code
+// function filterCategory(value) {
+//     //Button class code
+//     let buttons = document.querySelectorAll(".button-value");
+//     buttons.forEach((button) => {
+//         //check if value equals innerText
+//         if (value.toUpperCase() == button.innerText.toUpperCase()) {
+//             button.classList.add("active");
+//         } else {
+//             button.classList.remove("active");
+//         }
+//     });
+
+//     //select all cards
+//     let elements = document.querySelectorAll(".card");
+//     //loop through all cards
+//     elements.forEach((element) => {
+//         // display all cards on 'all' button click
+//         if (value == "all") {
+//             element.classList.remove("hide");
+//         } else {
+//             //Check if element contains category class
+//             if (element.classList.contains(value)) {
+//                 //display element based on category
+//                 element.classList.remove("hide");   
+//             } else {
+//                 //hide other elements
+//                 element.classList.add("hide");
+//             }
+//         }
+//     });
+// }
+function filterCategory() {
+    // Get all selected checkboxes
+    var checkboxes = document.querySelectorAll('.checkbox-value:checked');
+
+    // Extract values into an array
+    var selectedCategories = Array.from(checkboxes).map(function (checkbox) {
+        return checkbox.value;
+    });
+
+    // Button class code
     let buttons = document.querySelectorAll(".button-value");
     buttons.forEach((button) => {
-        //check if value equals innerText
-        if (value.toUpperCase() == button.innerText.toUpperCase()) {
+        // Check if value is in the selected categories
+        if (selectedCategories.includes(button.innerText.toUpperCase())) {
             button.classList.add("active");
         } else {
             button.classList.remove("active");
         }
     });
 
-    //select all cards
+    // Select all cards
     let elements = document.querySelectorAll(".card");
-    //loop through all cards
+    // Loop through all cards
     elements.forEach((element) => {
-        // display all cards on 'all' button click
-        if (value == "all") {
+        // Display all cards if no category is selected
+        if (selectedCategories.length === 0) {
             element.classList.remove("hide");
         } else {
-            //Check if element contains category class
-            if (element.classList.contains(value)) {
-                //display element based on category
-                element.classList.remove("hide");   
+            // Check if element contains any of the selected categories
+            if (selectedCategories.some(category => element.classList.contains(category))) {
+                // Display element based on category
+                element.classList.remove("hide");
             } else {
-                //hide other elements
+                // Hide other elements
                 element.classList.add("hide");
             }
         }
     });
 }
+
+
+// Function to filter by date
+function filterDate() {
+    // Get start and end dates
+    var startDate = new Date(document.getElementById("start-date").value);
+    var endDate = new Date(document.getElementById("end-date").value);
+
+    // Select all cards
+    let elements = document.querySelectorAll(".card");
+    // Loop through all cards
+    elements.forEach((element) => {
+        // Parse the date from the card
+        var cardDate = new Date(element.querySelector(".date").innerText);
+
+        // Display all cards if date is within range
+        if (isNaN(startDate) || isNaN(endDate) || (cardDate >= startDate && cardDate <= endDate)) {
+            element.classList.remove("hide");
+        } else {
+            // Hide other elements
+            element.classList.add("hide");
+        }
+    });
+}
+
+// Event listener for filter button click
+document.getElementById("filter-button").addEventListener("click", function () {
+    filterDate();
+});
+
 
 //Search button click
 document.getElementById("search").addEventListener
