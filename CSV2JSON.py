@@ -20,6 +20,8 @@ def make_json(csvFilePath, jsonFilePath):
             # Assuming a column named 'No' to
             # be the primary key
             key = rows['DISCOURSE_NAME']
+            rows['TEXT'] = rows['TEXT'].replace('"', '\\"')
+            rows['TEXT'] = rows['TEXT'].replace('\n', '\\n')
             rows['SPECIAL_OCCASION'] = rows['SPECIAL_OCCASION'].replace(" ", "_")
             lst.append(rows)
     data = {
@@ -34,7 +36,7 @@ def make_json(csvFilePath, jsonFilePath):
  
 # Decide the two file paths according to your
 # computer system
-csvFilePath = r'DISCOURSES.csv' 
+csvFilePath = r'DISCOURSES_2014-2023.csv'
 jsonFilePath = r'DISCOURSES.json'
  
 # Call the make_json function
