@@ -148,7 +148,9 @@ body {
     padding-top: 0em;
     border-radius: 5px;
     box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     box-sizing: border-box;
 }
 
@@ -226,3 +228,7 @@ body {
     margin-right: 0.2em;
 }
 
+
+#specocc-select {
+    border: 1px solid #707070;
+  }
